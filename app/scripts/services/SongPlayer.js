@@ -83,6 +83,12 @@
           */
           SongPlayer.currentTime = null;
 
+          /**
+          * @desc Current volume (scale 0-100)
+          * @type {Number}
+          */
+          SongPlayer.volume = null;
+
          /**
          * @function SongPlayer.play
          * @desc Plays current song if paused, or selected song
@@ -157,7 +163,18 @@
             }
         };
 
-         return SongPlayer;
+        /**
+        * @function setVolume
+        * @desc Sets the volume
+        * @param {Number} volume
+        */
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+                currentBuzzObject.setVolume(volume);
+            }
+        };
+
+        return SongPlayer;
      }
 
      angular
